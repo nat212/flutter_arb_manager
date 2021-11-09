@@ -1,0 +1,18 @@
+{
+  "appTitle": "Flutter i18n Manager",
+  "@appTitle": {
+    "description": "The title of the app"
+  },
+  "start": "Start",
+  "@start": {
+    "description": "Start section"
+  },
+  "openFolder": "Open folder",
+  "@openFolder": {
+    "description": "Open folder button label"
+  },
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "Settings section title"
+  }
+}
