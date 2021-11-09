@@ -14,5 +14,39 @@
   "settingsTitle": "Settings",
   "@settingsTitle": {
     "description": "Settings section title"
+  },
+  "btnOk": "OK",
+  "@btnOk": {
+    "description": "OK button label"
+  },
+  "errOpenFolder": "Error opening folder",
+  "@errOpenFolder": {
+    "description": "Error message when the folder cannot be opened"
+  },
+  "errNotFlutterProject": "The selected folder is not a Flutter project",
+  "@errNotFlutterProject": {
+    "description": "Error message when the selected folder is not a Flutter project"
+  },
+  "infoLocalisationNotSetUp": "Localisation not set up",
+  "@infoLocalisationNotSetUp": {
+    "description": "Info message when the localisation is not set up"
+  },
+  "infoLocalisationNotSetUpMsg": "The l10n.yaml file was not found in {directory}, would you like to initialise localisation support for this project?",
+  "@infoLocalisationNotSetUpMsg": {
+    "description": "Info message when the localisation is not set up",
+    "placeholders": {
+      "directory": {
+        "type": "String",
+        "example": "/home/bob/dev"
+      }
+    }
+  },
+  "btnNo": "NO",
+  "@btnNo": {
+    "description": "No button label"
+  },
+  "btnYes": "YES",
+  "@btnYes": {
+    "description": "Yes button label"
   }
 }
