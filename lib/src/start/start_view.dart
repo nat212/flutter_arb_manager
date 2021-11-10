@@ -1,18 +1,20 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_i18n_manager/src/project/project_service.dart';
+import 'package:flutter_i18n_manager/src/project_config/project_config_service.dart';
 import 'package:flutter_i18n_manager/src/settings/settings_view.dart';
 import 'dart:io';
 
-class HomeView extends StatefulWidget {
+class StartView extends StatefulWidget {
   static const String routeName = '/';
-  const HomeView({Key? key}) : super(key: key);
+  const StartView({Key? key}) : super(key: key);
 
   @override
-  _HomeViewState createState() => _HomeViewState();
+  _StartViewState createState() => _StartViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _StartViewState extends State<StartView> {
   bool _startHovering = false;
   bool _recentHovering = false;
 
@@ -91,42 +93,9 @@ class _HomeViewState extends State<HomeView> {
 
   void _openDirectory() async {
     String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
-    if (selectedDirectory == null) return;
-
-    File pubspec = File('$selectedDirectory/pubspec.yaml');
-    if (!pubspec.existsSync()) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(AppLocalizations.of(context)!.errOpenFolder),
-          content: Text(AppLocalizations.of(context)!.errNotFlutterProject),
-          actions: <Widget>[
-            TextButton(
-              child: Text(AppLocalizations.of(context)!.btnOk),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        ),
-      );
-      return;
-    }
-    File l10n = File('$selectedDirectory/l10n.yaml');
-    if (!l10n.existsSync()) {
-      await showDialog<bool>(
-          context: context,
-          builder: (context) => AlertDialog(
-                  title: Text(
-                      AppLocalizations.of(context)!.infoLocalisationNotSetUp),
-                  content: Text(AppLocalizations.of(context)!
-                      .infoLocalisationNotSetUpMsg(selectedDirectory)),
-                  actions: [
-                    TextButton(
-                        child: Text(AppLocalizations.of(context)!.btnNo),
-                        onPressed: () => Navigator.of(context).pop(false)),
-                    TextButton(
-                        child: Text(AppLocalizations.of(context)!.btnYes),
-                        onPressed: () => Navigator.of(context).pop(true)),
-                  ]));
+    if (selectedDirectory != null) {
+      await ProjectService(ProjectConfigService())
+          .initialise(selectedDirectory);
     }
   }
 

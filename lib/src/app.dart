@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_i18n_manager/src/home/home_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_i18n_manager/src/settings/settings_controller.dart';
 import 'package:flutter_i18n_manager/src/settings/settings_view.dart';
+import 'package:flutter_i18n_manager/src/start/start_view.dart';
 import 'package:flutter_i18n_manager/src/theme.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class App extends StatelessWidget {
   final SettingsController settingsController;
@@ -24,19 +24,19 @@ class App extends StatelessWidget {
             theme: themeData,
             themeMode: settingsController.themeMode,
             darkTheme: darkThemeData,
-            initialRoute: HomeView.routeName,
+            initialRoute: StartView.routeName,
             onGenerateRoute: (RouteSettings settings) {
               return MaterialPageRoute(
                   settings: settings,
                   builder: (BuildContext context) {
                     switch (settings.name) {
-                      case HomeView.routeName:
-                        return const HomeView();
+                      case StartView.routeName:
+                        return const StartView();
                       case SettingsView.routeName:
                         return SettingsView(
                             settingsController: settingsController);
                       default:
-                        return const HomeView();
+                        return const StartView();
                     }
                   });
             },

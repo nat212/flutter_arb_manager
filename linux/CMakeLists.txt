@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "flutter_arb_manager")
-set(APPLICATION_ID "com.example.flutter_arb_manager")
+set(BINARY_NAME "flutter_i18n_manager")
+set(APPLICATION_ID "com.natashadraper.flutter_i18n_manager")
 
 cmake_policy(SET CMP0063 NEW)
 

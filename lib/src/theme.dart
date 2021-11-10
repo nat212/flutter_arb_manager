@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 final ThemeData themeData = ThemeData.from(
         colorScheme: const ColorScheme.light(
-            primary: Colors.teal, secondary: Colors.purple))
+            primary: Colors.teal,
+            secondary: Colors.purple,
+            background: Color(0xFFEEEEEE)))
     .copyWith(visualDensity: VisualDensity.adaptivePlatformDensity);
 
 final ThemeData darkThemeData = ThemeData.from(

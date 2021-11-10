@@ -1,4 +1,4 @@
-# flutter_arb_manager
+# Flutter i18n Manager
 
 A new Flutter project.
 
